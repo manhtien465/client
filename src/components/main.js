@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import logo from '../images/logo.png';
-import l from '../images/1.jpg';
-import reactjs from'../images/reactjs.png';
+
+
+
 import {connect} from 'react-redux';
-import {getItems,deleteItems,setItemsLoading} from '../actions/itemAction'
+import {getdata,getinfor} from '../actions/itemAction'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import {
@@ -21,31 +21,17 @@ data:[],
     }
   }
   componentWillMount() {
- axios.get("/users").then(
-   res=>{
-     console.log(res);
-     this.setState({
-       data:res.data
-     });
-   }
- )
-
+      this.props.getdata()
     }
     infor =(infor) => {
-       const getdata=(getinfor)=>{
-      var dispatch=this.props.dispatch                 //cách gọi hàm thực thi trong store
-      dispatch({type:"GET_INFOR",
-      getinfor})
-    }
-      getdata(infor);
-
+this.props.getinfor(infor)       
     }
 
 
   render () {
-console.log(this.state.data);
 
-   const a= this.state.data.map((index,key)=>{
+
+   const a= this.props.data.map((index,key)=>{
       var year=index.updatedAt.slice(0,4)
     var  date=index.updatedAt.slice(5,7)
       if(date==="01"){
@@ -87,7 +73,7 @@ console.log(this.state.data);
      var  day=index.updatedAt.slice(8,10)
    var image=index.image.replace("public","")
      return(
-         <div  className="main__box">
+         <div key={key}  className="main__box">
            <div className="main__box--img">
               <Link to="/detail" onClick={(infor)=>this.infor(index)}>  <img src={image} alt=""/></Link>
            </div>
@@ -115,17 +101,16 @@ return(
   }
 }
 Main.propTypes={
-  getItems:PropTypes.func.isRequired,
+  getdata:PropTypes.func.isRequired,
+  getinfor:PropTypes.func.isRequired,
   item:PropTypes.object.isRequired
 }
+
 const mapStateToProps = (state, ownProps) => {
 return {
-  item: state.itemReduce,
-  infor:state.infor
+  data: state.itemReducer.data
 };
 };
 
 
-
-
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps,{getdata,getinfor})(Main);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types'
 class MainDetail extends Component {
   constructor(props){
     super(props)
@@ -8,14 +9,15 @@ class MainDetail extends Component {
     }
   }
   render () {
+    console.log(this.props.itemReducer);
     return (
        <div className="MainDetail">
 
       <div className="MainDetail__title">
-      <h2>{this.props.infor.title}</h2>
+<h2>{this.props.itemReducer.title}</h2>
       </div>
      <div className="MainDetail__content">
-       {this.props.infor.content}
+<p>{this.props.itemReducer.content}</p>
      </div>
 
         </div>
@@ -23,10 +25,13 @@ class MainDetail extends Component {
     )
   }
 }
+MainDetail.propTypes={
 
+  itemReducer:PropTypes.object.isRequired
+}
 const mapStateToProps = (state, ownProps) => {
 return {
-  infor: state.infor
+itemReducer: state.itemReducer.infor
 };
 };
 

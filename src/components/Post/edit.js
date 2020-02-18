@@ -36,7 +36,7 @@ detailData:"",
  delete= async(value) => {
    console.log(value);
    var id=value._id
-axios.delete(`/users/delete/${id}`)
+axios.delete(`/useedrs/delete/${id}`)
 .then(
   res=>{
     console.log(res);

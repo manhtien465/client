@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Footer from './components/footer'
 import Headers from './components/headers';
 import {connect} from 'react-redux';
-import {getItems,deleteItems,setItemsLoading} from './actions/itemAction'
+import{loadUser} from './actions/authAction'
 import './App.css';
+import store1 from './store';
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,7 +22,7 @@ class App extends Component {
      data:null,
     }
   }
-  
+
   render(){
   return (
     <Router>
@@ -41,4 +42,4 @@ return {
 };
 };
 
-export default connect(mapStateToProps,{getItems,deleteItems,setItemsLoading})(App);
+export default connect(mapStateToProps)(App);

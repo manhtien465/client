@@ -17,6 +17,8 @@ import New from './Post/new'
 import Edit from './Post/edit'
 import uploadImage from './Post/uploadImage'
 import EditDetail from './Post/EditDetail'
+import signIn from './signin/signIn'
+import signUp from './signin/signUp'
 
 export default class Routerr extends Component {
     render() {
@@ -55,6 +57,12 @@ export default class Routerr extends Component {
 
 </Route>
 <Route exact path="/detail" component={MainDetail}>
+
+</Route>
+<Route exact path="/SignIn" component={signIn}>
+
+</Route>
+<Route exact path="/SignUp" component={signUp}>
 
 </Route>
 

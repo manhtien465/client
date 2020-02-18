@@ -32,6 +32,7 @@ class Headers extends Component {
              <div id="contact"><Link to="/blog">Blog</Link></div>
              <div id="contact"><Link to="/About-me">About Me</Link> </div>
              <div id="contact"><Link to="/Contact">Contact</Link></div>
+             <div id="contact"><Link to="/SignIn">Sign in</Link></div>
            </div>
            </div>
         </div>
