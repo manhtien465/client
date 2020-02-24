@@ -8,10 +8,13 @@ class SignUp extends Component {
         super(props);
           this.state={
             modal: false,
-    name: '',
+    username: '',
     email: '',
-    password: '',
-    msg: null
+    passwork: '',
+    
+    msg: null,
+    errorpassworkagain:"",
+    errorpasswork:"",
           }
     }
     static propTypes = {
@@ -50,18 +53,35 @@ class SignUp extends Component {
 
       onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
+
+
       };
 
       onSubmit = e => {
-        e.preventDefault();
-
-        const { username, passwork,passworkagain,email } = this.state;
+        if(this.state.passwork.length<8){
+            e.preventDefault();
+          this.setState({
+            errorpasswork:"passwork must be more than 8 character"
+          });
+        }
+        if(this.state.passwork!==this.state.passworkagain){
+            e.preventDefault();
+          this.setState({
+            errorpassworkagain: "password not the same "
+          });
+        }else{
+          this.setState({
+            errorpassworkagain:null
+          });
+        }
+  e.preventDefault();
+        const { username,passwork,email } = this.state;
 
         // Create user object
         const newUser = {
           username,
           passwork,
-          passworkagain,
+
             email,
         };
 
@@ -71,18 +91,22 @@ class SignUp extends Component {
       };
 
     render() {
-        return (
-            <div id="signUp">
-                <form class=""onSubmit={this.onSubmit}>
-                  <label for="">Username</label>
-                  <input  onChange={(e)=>this.onChange(e)} type="text" name="username" />
 
-                  <label for="">Passwork</label>
-                  <input onChange={(e)=>this.onChange(e)} type="text" name="passwork" />
-                  <label for="">Passworkagain</label>
-                  <input  onChange={(e)=>this.onChange(e)} type="text" name="passworkagain" />
-                    <label for="">Email Adress</label>
-                    <input  onChange={(e)=>this.onChange(e)} type="text" name="email" />
+        return (
+            <div className="signUp">
+                <form className="signUp__form" onSubmit={this.onSubmit}>
+                    <div className="signUp__form--header">SIGN UP</div>
+                  <label for="username">Username</label>
+                  <input  onChange={(e)=>this.onChange(e)} type="text" name="username" placeholder="Username" />
+
+                  <label for="password">Passwork</label>
+                  <input onChange={(e)=>this.onChange(e)} type="password" name="passwork" placeholder="Password" />
+                  <div>{this.state.errorpasswork}</div>
+                <label for="">Passwork again</label>
+                  <input  onChange={(e)=>this.onChange(e)} type="password" name="passworkagain" placeholder="Passwork again" />
+                   <div>{this.state.errorpassworkagain}</div>
+                  <label for="">Email Adress</label>
+                    <input  onChange={(e)=>this.onChange(e)} type="text" name="email" placeholder="Email"/>
                   <button type="submit" name="button">Register</button>
 
                 </form>

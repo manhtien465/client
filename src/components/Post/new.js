@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types'
+import {connect} from 'react-redux';
 class New extends Component {
   constructor(props){
     super(props)
@@ -36,6 +38,11 @@ this.setState({
 
   }
 onSubmit= async e=>{
+  const config = {
+    headers: {
+      'x-auth-token':this.props.token
+    }
+  };
    const fd =new FormData()
 fd.append("title",this.state.title)
 fd.append("subtitle",this.state.subtitle)
@@ -43,12 +50,12 @@ fd.append("content",this.state.content)
    fd.append("image",this.state.selectedFile)
 // fd1.append("imageData",this.state.selectedFile)
 e.preventDefault()
-    const res=await axios.post('/users/add',fd)
+    const res=await axios.post('/users/add',fd,config)
   console.log(res);
 
 }
   render () {
-    console.log(this.state);
+
     return (
       <div id="new">
         <form className="new-addnew" onSubmit={this.onSubmit} enctype="multipart/form-data" >
@@ -67,5 +74,14 @@ e.preventDefault()
     )
   }
 }
+New.propTypes={
 
-export default New;
+
+}
+
+const mapStateToProps = (state, ownProps) => {
+return {
+  token: state.authReducer.token
+};
+};
+export default connect(mapStateToProps)(New);

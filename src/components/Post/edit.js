@@ -34,9 +34,13 @@ detailData:"",
 
  }
  delete= async(value) => {
-   console.log(value);
+   const config = {
+     headers: {
+       'x-auth-token':this.props.token
+     }
+   };
    var id=value._id
-axios.delete(`/useedrs/delete/${id}`)
+axios.delete(`/users/delete/${id}`,config)
 .then(
   res=>{
     console.log(res);
@@ -116,7 +120,7 @@ axios.delete(`/useedrs/delete/${id}`)
 }
 const mapStateToProps = (state, ownProps) => {
 return {
-
+token: state.authReducer.token,
   infor1:state.infor1
 };
 };

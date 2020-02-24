@@ -220,3 +220,62 @@ body {
     overflow: hidden;
     white-space: nowrap;
     color: black; }
+
+.signIn {
+  margin-left: 35%;
+  width: 40%; }
+  .signIn__form--header {
+    text-align: center;
+    font-size: 35px;
+    color: #2e2526; }
+  .signIn__form label {
+    display: block;
+    font-size: 30px;
+    color: #2e2526;
+    margin-bottom: 10px; }
+  .signIn__form input {
+    font-size: 20px;
+    display: block;
+    width: 90%;
+    height: 30px;
+    margin-bottom: 30px; }
+  .signIn__form--btn {
+    margin-left: 50%;
+    font-size: 20px; }
+  .signIn__form a {
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px 10px;
+    background: #dce7cb;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+  .signIn__form a:hover {
+    background: #59752e; }
+
+.signUp {
+  margin-left: 35%;
+  width: 40%; }
+  .signUp__form--header {
+    text-align: center;
+    font-size: 35px;
+    color: #2e2526; }
+  .signUp__form label {
+    display: block;
+    font-size: 30px;
+    color: #2e2526;
+    margin-bottom: 10px; }
+  .signUp__form input {
+    font-size: 20px;
+    display: block;
+    width: 90%;
+    height: 30px;
+    margin-bottom: 30px; }
+  .signUp__form button {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background: #dce7cb;
+    font-size: 20px;
+    color: #280ed2; }
+  .signUp__form button:hover {
+    background: #59752e; }

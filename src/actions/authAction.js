@@ -9,8 +9,21 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  LOGIN_FACEBOOK
 } from './type';
+export const loginFacebook =(token) =>(dispatch)=> {
+console.log(token);
+
+      dispatch({
+        type: LOGIN_FACEBOOK,
+        accessToken:token
+
+      })
+
+
+
+};
 
 // Check token & load user
 export const loadUser = () => (dispatch, getState) => {
@@ -48,7 +61,7 @@ export const register = (newUser) => dispatch => {
   const body = JSON.stringify(newUser);
 
   axios
-    .post('/login/add', newUser)
+    .post('/login/adduser', newUser)
     .then(res =>
 
       dispatch({
@@ -69,7 +82,7 @@ export const register = (newUser) => dispatch => {
 };
 
 // Login User
-export const login = ({ email, password }) => dispatch => {
+export const login = (loginUser) => dispatch => {
   // Headers
   const config = {
     headers: {
@@ -78,10 +91,10 @@ export const login = ({ email, password }) => dispatch => {
   };
 
   // Request body
-  const body = JSON.stringify({ email, password });
+  const body = JSON.stringify(loginUser);
 
   axios
-    .post('/api/auth', body, config)
+    .post('/authe/login', loginUser, config)
     .then(res =>
       dispatch({
         type: LOGIN_SUCCESS,
@@ -90,7 +103,7 @@ export const login = ({ email, password }) => dispatch => {
     )
     .catch(err => {
       dispatch(
-        returnErrors(err.res.data, err.res.status, 'LOGIN_FAIL')
+        returnErrors(err.response.data, err.response.status, 'LOGIN_FAIL')
       );
       dispatch({
         type: LOGIN_FAIL

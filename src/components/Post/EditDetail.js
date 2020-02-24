@@ -37,6 +37,11 @@ this.setState({
    });
 }
 onSubmit1= async e=>{
+  const config = {
+    headers: {
+      'x-auth-token':this.props.token
+    }
+  };
    const fd =new FormData()
    fd.append("id",this.props.infor1._id)
 fd.append("title",this.state.title)
@@ -45,12 +50,12 @@ fd.append("content",this.state.content)
    fd.append("image",this.state.selectedFile)
 // fd1.append("imageData",this.state.selectedFile)
 e.preventDefault()
-    const res=await axios.post('/users/edit',fd)
+    const res=await axios.post('/users/edit',fd,config)
   console.log(res);
 
 }
   render () {
-    console.log(this.props.infor1._id);
+
 
     return (
       <div id="edit">
@@ -71,8 +76,8 @@ e.preventDefault()
 }
 const mapStateToProps = (state, ownProps) => {
 return {
-
-  infor1:state.infor1
+token:state.authReducer.token,
+  infor1:state.itemReducer.infor1
 };
 };
 

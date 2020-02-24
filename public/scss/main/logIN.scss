@@ -1,0 +1,79 @@
+.signIn{
+  margin-left: 35%;
+  width: 40%;
+  &__form{
+    &--header{
+      text-align: center;
+      font-size: 35px;
+      color:rgb(46, 37, 38);
+    }
+    label{
+      display: block;
+      font-size: 30px;
+      color:rgb(46, 37, 38);
+margin-bottom: 10px;
+    }
+    input{
+      font-size: 20px;
+      display: block;
+      width: 90%;
+      height: 30px;
+      margin-bottom: 30px;
+
+    }
+    &--btn{
+margin-left: 50%;
+
+      font-size: 20px;
+
+
+
+    }
+    a{
+
+      font-size: 20px;
+      text-decoration: none;
+       padding: 5px 10px;
+       background: rgb(220, 231, 203);
+       box-sizing: border-box;
+    }
+    a:hover{
+      background: rgb(89, 117, 46);
+    }
+  }
+}
+.signUp{
+  margin-left: 35%;
+  width: 40%;
+  &__form{
+    &--header{
+      text-align: center;
+      font-size: 35px;
+      color:rgb(46, 37, 38);
+    }
+    label{
+      display: block;
+      font-size: 30px;
+      color:rgb(46, 37, 38);
+      margin-bottom: 10px;
+    }
+    input{
+      font-size: 20px;
+      display: block;
+      width: 90%;
+      height: 30px;
+      margin-bottom: 30px;
+
+    }
+    button{
+box-sizing: border-box;
+      padding:10px 20px;
+      background: rgb(220, 231, 203);
+      font-size: 20px;
+      color:rgb(40, 14, 210)
+    }
+    button:hover{
+      background: rgb(89, 117, 46);
+    }
+  }
+}

@@ -7,6 +7,9 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case "LOGIN_FACEBOOK":
+    localStorage.setItem('token', action.accessToken);
+
     case "USER_LOADING":
       return {
         ...state,

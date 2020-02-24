@@ -3,7 +3,7 @@ export const GET_INFOR1 = 'GET_INFOR1';
 export const GET_DATA__FROM__DB = 'GET_DATA__FROM__DB';
 export const ITEMS_LOADING = 'ITEMS_LOADING';
 
-
+export const LOGIN_FACEBOOK = "LOGIN_FACEBOOK";
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";

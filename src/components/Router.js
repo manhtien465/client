@@ -19,6 +19,7 @@ import uploadImage from './Post/uploadImage'
 import EditDetail from './Post/EditDetail'
 import signIn from './signin/signIn'
 import signUp from './signin/signUp'
+import BoxLish from './GraphQl/boxlish'
 
 export default class Routerr extends Component {
     render() {
@@ -63,6 +64,9 @@ export default class Routerr extends Component {
 
 </Route>
 <Route exact path="/SignUp" component={signUp}>
+
+</Route>
+<Route exact path="/BoxLish" component={BoxLish}>
 
 </Route>
 
