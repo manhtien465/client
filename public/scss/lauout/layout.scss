@@ -47,16 +47,15 @@ body{
           }
         }
       }
-      &--menu{
-
-
-        grid-area: menu;
-        display: flex;
+    &--menu{
+          grid-area: menu;
+      &--detail{
+  display: flex;
 a{
 
 
 }
-      }}
+}}}
     }
     #main{
       grid-area: main;

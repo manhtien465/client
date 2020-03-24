@@ -28,7 +28,12 @@ class Post extends Component {
   edit
                </div>
          </Link>
+         <Link to="/admin/login/shopping" >
+          <div class="">
+            shopping
+          </div>
 
+         </Link>
          </div>
     )
   }

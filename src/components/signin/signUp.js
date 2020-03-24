@@ -10,8 +10,8 @@ class SignUp extends Component {
             modal: false,
     username: '',
     email: '',
-    passwork: '',
-    
+    password: '',
+
     msg: null,
     errorpassworkagain:"",
     errorpasswork:"",
@@ -58,30 +58,29 @@ class SignUp extends Component {
       };
 
       onSubmit = e => {
-        if(this.state.passwork.length<8){
+        if(this.state.password.length<8){
             e.preventDefault();
           this.setState({
             errorpasswork:"passwork must be more than 8 character"
           });
         }
-        if(this.state.passwork!==this.state.passworkagain){
+        if(this.state.password!==this.state.passwordagain){
             e.preventDefault();
           this.setState({
-            errorpassworkagain: "password not the same "
+            errorpasswordagain: "password not the same "
           });
         }else{
           this.setState({
-            errorpassworkagain:null
+            errorpasswordagain:null
           });
         }
-  e.preventDefault();
-        const { username,passwork,email } = this.state;
 
-        // Create user object
+        const { username,password,email } = this.state;
+
+
         const newUser = {
           username,
-          passwork,
-
+          password,
             email,
         };
 
@@ -100,10 +99,10 @@ class SignUp extends Component {
                   <input  onChange={(e)=>this.onChange(e)} type="text" name="username" placeholder="Username" />
 
                   <label for="password">Passwork</label>
-                  <input onChange={(e)=>this.onChange(e)} type="password" name="passwork" placeholder="Password" />
+                  <input onChange={(e)=>this.onChange(e)} type="password" name="password" placeholder="Password" />
                   <div>{this.state.errorpasswork}</div>
                 <label for="">Passwork again</label>
-                  <input  onChange={(e)=>this.onChange(e)} type="password" name="passworkagain" placeholder="Passwork again" />
+                  <input  onChange={(e)=>this.onChange(e)} type="password" name="passwordagain" placeholder="Password again" />
                    <div>{this.state.errorpassworkagain}</div>
                   <label for="">Email Adress</label>
                     <input  onChange={(e)=>this.onChange(e)} type="text" name="email" placeholder="Email"/>

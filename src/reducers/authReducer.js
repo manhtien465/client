@@ -7,7 +7,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case "LOGIN_FACEBOOK":
+    case "LOGIN_SOCIALNETWOKR":
     localStorage.setItem('token', action.accessToken);
 
     case "USER_LOADING":
@@ -23,6 +23,13 @@ export default function(state = initialState, action) {
         user: action.payload
       };
     case "LOGIN_SUCCESS":
+    localStorage.setItem('token', action.payload);
+    return {
+      ...state,
+
+      isAuthenticated: true,
+      isLoading: false
+    };
     case "REGISTER_SUCCESS":
       localStorage.setItem('token', action.payload.token);
       return {

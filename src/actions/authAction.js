@@ -10,19 +10,25 @@ import {
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
-  LOGIN_FACEBOOK
+  LOGIN_SOCIALNETWOKR
 } from './type';
-export const loginFacebook =(token) =>(dispatch)=> {
-console.log(token);
-
-      dispatch({
-        type: LOGIN_FACEBOOK,
-        accessToken:token
-
-      })
-
-
-
+export const loginFacebook =(loginUser,token) =>(dispatch,accessToken)=> {
+  dispatch({
+    type:"LOGIN_SOCIALNETWOKR",
+    accessToken:token
+  })
+ axios.post("/login/facebook",loginUser)
+ .then(res=>{
+ })
+};
+export const loginGoogle =(loginUser,token) =>(dispatch,accessToken)=> {
+  dispatch({
+    type:"LOGIN_SOCIALNETWOKR",
+    accessToken:token
+  })
+ axios.post("/login/google",loginUser)
+ .then(res=>{
+ })
 };
 
 // Check token & load user
@@ -61,7 +67,7 @@ export const register = (newUser) => dispatch => {
   const body = JSON.stringify(newUser);
 
   axios
-    .post('/login/adduser', newUser)
+    .post('/login/adduser',newUser)
     .then(res =>
 
       dispatch({
@@ -94,12 +100,14 @@ export const login = (loginUser) => dispatch => {
   const body = JSON.stringify(loginUser);
 
   axios
-    .post('/authe/login', loginUser, config)
+    .post('/login/signin', loginUser, config)
     .then(res =>
+
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: res.data
+        payload: res.data.token
       })
+
     )
     .catch(err => {
       dispatch(

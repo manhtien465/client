@@ -8,6 +8,8 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import Menu from "./header/menu"
+import Routerr from "./Router/Router"
 class Headers extends Component {
   constructor(props){
     super(props)
@@ -28,12 +30,8 @@ class Headers extends Component {
              <a href="https://www.facebook.com/tien.nguyenmanh.465"><i className="fab fa-instagram" /></a>
              <a href="https://www.instagram.com/tien_xoay//"><i className="fab fa-facebook-f" /></a>
            </div>
-           <div id="header__menutop--menu">
-             <div id="contact"><Link to="/blog">Blog</Link></div>
-             <div id="contact"><Link to="/About-me">About Me</Link> </div>
-             <div id="contact"><Link to="/Contact">Contact</Link></div>
-             <div id="contact"><Link to="/SignIn">Sign in</Link></div>
-           </div>
+           <Routerr></Routerr>
+
            </div>
         </div>
     )

@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React, {useEffect,useState} from 'react'
+import {useSelector,useDispatch} from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link,
   useParams
 } from "react-router-dom";
@@ -20,10 +22,28 @@ import EditDetail from './Post/EditDetail'
 import signIn from './signin/signIn'
 import signUp from './signin/signUp'
 import BoxLish from './GraphQl/boxlish'
+import Shopping from './shopping/shopping'
+import Upload from "./shopping/upload/upload"
+import detailProduct from './shopping/detail/detail'
 
-export default class Routerr extends Component {
-    render() {
+const Routerr =() => {
+  const dispatch=useDispatch()
+  const token=useSelector(state=>state.authReducer.token)
 
+
+
+      const ProtectRoute=({component:Component,...rest}) => {
+        return <Route {...rest} render={(props)=>{
+
+              if(token!==null){
+               return  <Component {...props}/>
+              }else{
+                 return <Redirect to="/SignIn"/>
+
+            }
+
+          }}/>
+      }
         return (
 
             <div id="main">
@@ -33,6 +53,12 @@ export default class Routerr extends Component {
           <Route exact path="/blog" component={Blog}>
 
    </Route>
+   <Route exact path="/admin/login/shopping/detail" component={detailProduct}>
+
+   </Route>
+   <Route exact path="/admin/login/shopping/upload" component={Upload}>
+
+   </Route>S
    <Route exact path="/Contact" component={Contact}>
 
 </Route>
@@ -42,10 +68,11 @@ export default class Routerr extends Component {
 <Route exact path="/admin" component={Login}>
 
 </Route>
-<Route exact path="/admin/edit" component={Post}>
+<ProtectRoute exact path="/admin/edit" component={Post}></ProtectRoute>
+<Route exact path="/admin/login/edit" component={Edit}>
 
 </Route>
-<Route exact path="/admin/login/edit" component={Edit}>
+<Route exact path="/admin/login/shopping" component={Shopping}>
 
 </Route>
 <Route exact path="/admin/login/EditDetail" component={EditDetail}>
@@ -75,4 +102,4 @@ export default class Routerr extends Component {
 
         )
     }
-}
+    export default Routerr

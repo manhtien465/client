@@ -3,7 +3,7 @@ export const GET_INFOR1 = 'GET_INFOR1';
 export const GET_DATA__FROM__DB = 'GET_DATA__FROM__DB';
 export const ITEMS_LOADING = 'ITEMS_LOADING';
 
-export const LOGIN_FACEBOOK = "LOGIN_FACEBOOK";
+export const LOGIN_SOCIALNETWOKR = "LOGIN_SOCIALNETWOKR";
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
@@ -14,3 +14,10 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+export const GET_DATA="GET_DATA"
+export const GET_DATA1="GET_DATA1"
+export const GET_DATA_FULL="GET_DATA_FULL"
+export const GET_DATA_CHECKED="GET_DATA_CHECKED"
+export const GET_DATA_DETAIL="GET_DATA_DETAIL"
+export const ADD_TO_CARD="ADD_TO_CARD"

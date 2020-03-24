@@ -41,10 +41,11 @@ body {
         #container #header__menutop--social a i .fab {
           height: 30px; }
       #container #header__menutop--menu {
-        grid-area: menu;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex; }
+        grid-area: menu; }
+        #container #header__menutop--menu--detail {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
   #container #main {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
@@ -79,14 +80,35 @@ body {
         height: 30px; }
     #container #header__menutop--menu {
       margin-left: 110%;
-      font-size: 30px;
-      grid-area: menu;
-      margin-top: -50px; }
-      #container #header__menutop--menu a {
-        color: #353139;
-        white-space: nowrap;
-        margin-left: 20px;
-        text-decoration: none; }
+      grid-area: menu; }
+      #container #header__menutop--menu--detail {
+        font-size: 25px; }
+        #container #header__menutop--menu--detail a {
+          color: #353139;
+          white-space: nowrap;
+          margin-left: 20px;
+          text-decoration: none; }
+      #container #header__menutop--menu #shoppingheader {
+        margin-top: 20px;
+        margin-left: 22px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: 20px;
+        color: black; }
+        #container #header__menutop--menu #shoppingheader #contact #notification {
+          font-size: 20px; }
+          #container #header__menutop--menu #shoppingheader #contact #notification span {
+            color: #f2581e;
+            margin-top: -5px;
+            font-weight: bold;
+            position: relative;
+            top: -8px;
+            right: 7px;
+            z-index: 1; }
+        #container #header__menutop--menu #shoppingheader a {
+          text-decoration: none;
+          color: #353139; }
 
 #header__menutop--menu a:hover {
   color: #d07548;
@@ -279,3 +301,51 @@ body {
     color: #280ed2; }
   .signUp__form button:hover {
     background: #59752e; }
+
+.kep-login-facebook {
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  width: 150px;
+  height: 50px;
+  padding: 0 !important;
+  font-family: sans-serif !important;
+  margin: 0 !important; }
+
+.metro {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+.facebook span {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+button {
+  width: 150px;
+  height: 50px; }
+
+#bodyshopping {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 900px;
+  margin-left: 250px;
+  margin-top: 50px; }
+  #bodyshopping .cart {
+    margin: 35px 10px;
+    width: 200px;
+    height: 120px; }
+    #bodyshopping .cart a {
+      color: black;
+      text-decoration: none; }
+      #bodyshopping .cart a .cart__box div {
+        width: 200px;
+        height: 120px; }
+        #bodyshopping .cart a .cart__box div .carousel {
+          display: none; }
+        #bodyshopping .cart a .cart__box div .carousel-slider {
+          display: block; }
+      #bodyshopping .cart a .cart__box .cart__box--city {
+        width: auto;
+        height: auto; }

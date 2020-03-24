@@ -32,10 +32,11 @@ width: 15%;
       }
     }
     &--menu{
-      margin-left :110%;
-      font-size: 30px;
+margin-left: 110%;
       grid-area: menu;
-      margin-top: -50px;
+
+  &--detail{
+    font-size: 25px;
 
 a{
   color:rgb(53, 49, 57);
@@ -43,6 +44,33 @@ white-space: nowrap;
 margin-left: 20px;
 text-decoration: none;
 
+}}
+#shoppingheader{
+  margin-top:20px;
+  margin-left: 22px;
+  display: flex;
+  font-size: 20px;
+  color:black;
+
+  #contact{
+
+  #notification{
+font-size: 20px;
+      span{
+      color:rgb(242, 88, 30);
+      margin-top: -5px;
+      font-weight: bold;
+       position: relative;
+       top:-8px;
+       right:7px;
+       z-index: 1;
+    }
+  }
+  }
+  a{
+    text-decoration: none;
+      color:rgb(53, 49, 57);
+  }
 }
     }}
   }
